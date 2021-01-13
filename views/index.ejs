@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="all.min.css">
+	
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <title>Parking Management</title>
+  </head>
+  <body class="hold-transition layout-top-nav">
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand-md navbar-dark navbar-olive">
+			<div class="container">				
+				<div class="collapse navbar-collapse order-3" id="navbarCollapse">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="index"class="nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="parking"class="nav-link">Parking</a>
+						</li>
+						<li class="nav-item">
+							<a href="camera"class="nav-link">Camera</a>
+						</li>						
+						<li class="nav-item">
+							<a href="report"class="nav-link">Report</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark"> Parking Management System <small></small></h1>
+						</div><!-- /.col -->
+						<div class="col-sm-6">
+							<!-- <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Layout</a></li>
+              <li class="breadcrumb-item active">Top Navigation</li>
+            </ol> -->
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">System Overview</h5>
+								</div>
+								<div class="card-body">
+									<table class="table table-bordered">
+										<tr>
+											<td class="tableKey">Name</td>
+											<td style="width: 30%;">Condo A</td>
+											<td class="tableKey">Address</td>
+											<td style="width: 30%;">25 Street name, District, City</td>
+										</tr>
+										<tr>
+											<td class="tableKey">Area</td>
+											<td>3000 m<sup>2</sup></td>
+											<td class="tableKey">Number of lot</td>
+											<td>600</td>
+										</tr>
+										<tr>
+											<td class="tableKey">Lot Available</td>
+											<td>300</td>
+											<td class="tableKey">Lot Occupied</td>
+											<td>300</td>
+										</tr>
+										<tr>
+											<td class="tableKey">Number of Camera</td>
+											<td>200</td>
+											<td class="tableKey">Camera status</td>
+											<td>Normal</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 col-md-4">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">Regular Lots Status</h5>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-3">
+											<i class="fas fa-car fa-4x" style="color:#007bff;"></i>
+										</div>
+										<div class="col-6 align-self-center">
+											<h3>Total</h3>
+										</div>
+										<div class="col-3 align-self-center">
+											<h3 style="color: #007bff; font-weight: bold;">500</h3>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-3">
+											<i class="fas fa-check-circle fa-4x" style="color:#28a745;"></i>
+										</div>
+										<div class="col-6 align-self-center">
+											<h3>Available</h3>
+										</div>
+										<div class="col-3 align-self-center">
+											<h3 style="color: #28a745; font-weight: bold;">200</h3>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-3">
+											<i class="fas fa-times-circle fa-4x" style="color:#dc3545;"></i>
+										</div>
+										<div class="col-6 align-self-center">
+											<h3>Occupied</h3>
+										</div>
+										<div class="col-3 align-self-center">
+											<h3 style="color: #dc3545; font-weight: bold;">300</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-8">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">Special Lots</h5>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-12">
+											<h5>Wheelchair Accessible</h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-4">
+											<i class="fas fa-wheelchair fa-4x" style="color: #007bff;"></i>
+										</div>
+										<div class="col-4 align-self-center">
+											<h3>Available</h3>
+											<h3 style="color: #28a745; font-weight: bold;">45</h3>
+										</div>
+										<div class="col-4 align-self-center">
+											<h3>Occupied</h3>
+											<h3 style="color: #dc3545; font-weight: bold;">5</h3>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-12">
+											<h5>Reserved</h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-4">
+											<i class="fas fa-minus-square fa-4x" style="color: #dc3545;"></i>
+										</div>
+										<div class="col-4 align-self-center">
+											<h3>Available</h3>
+											<h3 style="color: #28a745; font-weight: bold;">5</h3>
+										</div>
+										<div class="col-4 align-self-center">
+											<h3>Occupied</h3>
+											<h3 style="color: #dc3545; font-weight: bold;">5</h3>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-12">
+											<h5>Monthly vehicles</h5>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-4">
+											<i class="fas fa-calendar-alt fa-4x" style="color: #007bff;"></i>
+										</div>
+										<div class="col-4 align-self-center">
+											<h3>Available</h3>
+											<h3 style="color: #28a745; font-weight: bold;">100</h3>
+										</div>
+										<div class="col-4 align-self-center">
+											<h3>Occupied</h3>
+											<h3 style="color: #dc3545; font-weight: bold;">75</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-->
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="float-right d-none d-sm-inline">
+
+			</div>
+			<!-- Default to the left -->
+			<strong>Copyright &copy; 2020 <a href="#">VAS Corporation</a>.</strong> All rights reserved.
+		</footer>
+	</div>
+	<script type="text/javascript" src='adminlte.min.js'></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

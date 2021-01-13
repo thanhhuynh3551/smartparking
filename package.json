@@ -1,0 +1,38 @@
+{
+  "name": "parking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "ejs": "^3.1.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-myconnection": "^1.0.4",
+    "filereader": "^0.10.3",
+    "gulp": "^4.0.2",
+    "jquery": "^3.5.1",
+    "json2csv": "^5.0.5",
+    "logger": "0.0.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "xhr-request": "^1.1.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "md5": "^2.3.0",
+    "nodemon": "^2.0.6"
+  }
+}

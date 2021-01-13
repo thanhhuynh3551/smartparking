@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="datatables.min.css" />
+	<title>Camera Status</title>
+	
+	
+  </head>
+  <body class="hold-transition layout-top-nav">
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand-md navbar-dark navbar-olive">
+			<div class="container">
+				<div class='col-12'>
+					<div class="collapse navbar-collapse order-3" id="navbarCollapse">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a href="index"class="nav-link">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="parking" class="nav-link">Parking</a>
+							</li>
+							<li class="nav-item">
+								<a href="#"class="nav-link">Camera</a>
+							</li>							
+							<li class="nav-item">
+								<a href="report"class="nav-link">Report</a>
+							</li>
+						</ul>
+					</div>
+				</div>				
+			</div>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark"> Camera Status <small></small></h1>
+						</div><!-- /.col -->
+						<div class="col-sm-6">
+							<!-- <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Layout</a></li>
+              <li class="breadcrumb-item active">Top Navigation</li>
+            </ol> -->
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">Login to camera</h5>
+								</div>
+								<!-- <form class="form" id="formLogin"> -->
+								<div class="card-body">
+									<div class="row">
+
+										<div class="col-12 col-md-3">
+											<div class="form-group">
+												<label for="cmrIp">IP address</label>
+												<input type="text" name="cmrIp" id="cmrIp" class="form-control" data-inputmask="'alias': 'ip'"
+													data-mask placeholder="192.168.1.1" value="123.20.222.165">
+											</div>
+										</div>
+										<div class="col-12 col-md-3">
+											<div class="form-group">
+												<label for="cmrPort">Port</label>
+												<input type="number" name="cmrPort" id="cmrPort" class="form-control" placeholder="8000">
+											</div>
+										</div>
+										<div class="col-12 col-md-3">
+											<div class="form-group">
+												<label for="cmrUsername">Username</label>
+												<input type="text" name="cmrUsername" id="cmrUsername" class="form-control"
+													placeholder="Username" value="admin">
+											</div>
+										</div>
+										<div class="col-12 col-md-3">
+											<div class="form-group">
+												<label for="cmrPassword">Password</label>
+												<input type="password" name="cmrPassword" id="cmrPassword" class="form-control"
+													placeholder="Password" value="hd543211">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											<table class="table table-bordered" id="tblDeviceInfo">
+												<tbody>
+													<tr>
+														<td style="width: 20%;"><b>Device Name</b></td>
+														<td style="width: 30%;"></td>
+														<td style="width: 20%;"><b>Device ID</b></td>
+														<td style="width: 30%;"></td>
+													</tr>
+													<tr>
+														<td><b>Description</b></td>
+														<td></td>
+														<td><b>Device Location</b></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td><b>Model</b></td>
+														<td></td>
+														<td><b>Serial number</b></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td><b>MAC address</b></td>
+														<td></td>
+														<td><b>Firmware Version</b></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td><b>Device Type</b></td>
+														<td></td>
+														<td><b>Hardware Version</b></td>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="card-footer">
+									<div class="row">
+										<div class="col-2">
+											<button class="btn btn-block btn-primary" id="btnLogin">Login</button>
+										</div>
+										<div class="col-2">
+											<button class="btn btn-block btn-primary" id="btnShowImg">Show camera image</button>
+										</div>
+										<!-- <div class="col-2">
+											<button class="btn btn-block bg-olive" id="btnDeviceInfo">Device Info</button>
+										</div> -->
+									</div>
+								</div>
+								<!-- </form> -->
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">Parking Lot</h5>
+								</div>
+								<div class="card-body">
+									<table class="table table-bordered" id="tblParkingLot" style="text-align:center">
+										<thead>
+											<tr>
+												<th style="width: 25%;">Lot Number</th>
+												<th style="width: 25%;">Lot 1</th>
+												<th style="width: 25%;">Lot 2</th>
+												<th style="width: 25%;">Lot 3</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Status</td>
+												<td class="lotSttUnknow">Unknow</td>
+												<td class="lotSttUnknow">Unknow</td>
+												<td class="lotSttUnknow">Unknow</td>
+											</tr>
+											<tr>
+												<td>License Plate</td>
+												<td>--</td>
+												<td>--</td>
+												<td>--</td>
+											</tr>
+											<tr>
+												<td>Vehicle Color</td>
+												<td>--</td>
+												<td>--</td>
+												<td>--</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal fade" id="modalCameraImage">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">								
+								<div class="modal-header">
+									<h4 class="modal-title">Camera Image</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+
+								<div class="modal-body d-flex justify-content-center align-items-center">
+									<img src="#" alt="" style="height: 420px;" id="image">
+								</div>
+								<div class="modal-footer justify-content-between">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<!-- Main Footer -->
+		<footer class="main-footer"></footer>
+			<!-- To the right -->
+			<div class="float-right d-none d-sm-inline">
+
+			</div>
+			<!-- Default to the left -->
+			<strong>Copyright &copy; 2020 <a href="#">VAS Corporation</a>.</strong> All rights reserved.
+		</footer>
+	</div>
+	<script src='jquery-3.5.1.min.js'></script>	
+	<script src='boostrap.bundle.min.js'></script>
+	<script type="text/javascript" src="digestAjax/crypto-js-develop/src/core.js"></script>
+	<script type="text/javascript" src="digestAjax/crypto-js-develop/src/md5.js"></script>	
+	<script type="text/javascript" src="digestAjax/digestAuthRequest.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js" integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA==" crossorigin="anonymous"></script>
+	<script type="text/javascript" src='adminlte.min.js'></script>
+	<script	type="text/javascript" src='datatables.min.js'></script>
+	<script type="text/javascript" src='moment.min.js'></script>
+	<script type="text/javascript" src='jquery.inputmask.bundle.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
+	<script>
+		$('[data-mask]').inputmask()
+		$(document).ready(function () {
+		$('#btnLogin').click(function () {
+		if ($('#cmrIp').val() !== '') {
+		let url = 'http://localhost:3000/http://baixethaodienpearl.ddns.me:83/ISAPI/System/deviceInfo';
+		let req = new digestAuthRequest('GET', url, 'admin', 'hd543211');
+		// make the request
+		req.request(function (data) {
+			// console.log('Data retrieved successfully')
+			//console.log(data)
+			var $xml = $($.parseXML(data));				
+			// alert($xml.find('title').text())
+			$('#tblDeviceInfo td:eq(1)').html($xml.find('deviceName').text())
+			$('#tblDeviceInfo td:eq(3)').html($xml.find('deviceID').text())
+			$('#tblDeviceInfo td:eq(5)').html($xml.find('deviceDescription').text())
+			$('#tblDeviceInfo td:eq(7)').html($xml.find('deviceLocation').text())
+			$('#tblDeviceInfo td:eq(9)').html($xml.find('model').text())
+			$('#tblDeviceInfo td:eq(11)').html($xml.find('serialNumber').text())
+			$('#tblDeviceInfo td:eq(13)').html($xml.find('macAddress').text())
+			$('#tblDeviceInfo td:eq(15)').html($xml.find('firmwareVersion').text())
+			$('#tblDeviceInfo td:eq(17)').html($xml.find('deviceType').text())
+			$('#tblDeviceInfo td:eq(19)').html($xml.find('hardwareVersion').text())
+		}, function (errorCode) {
+			alert('Error!')
+			 console.log('no dice: ' + errorCode)
+		})
+
+		fnGetSeq()
+	} else {
+		alert('Error!')
+	}
+})
+})
+
+
+$('#btnShowImg').click(function () {			
+			$('#overlaySpinner').show();			
+			let url = 'http://localhost:3000/http://123.20.222.165:83/ISAPI/Streaming/channels/1/picture';
+			let req = new digestAuthRequest('GET', url, 'admin','hd543211');
+			req.request(function (data) {
+				//console.log(data);
+				let img = document.getElementById('image')
+
+				let reader = new FileReader()				
+				reader.onloadend = function () {
+					// let base64data = reader.result
+					// img.src = base64data
+					img.src = reader.result
+				}
+				reader.readAsDataURL(data)
+				$('#overlaySpinner').hide()
+			}, function (error) {
+				alert('Error!')
+			})
+			$('#modalCameraImage').modal('show')
+
+		})
+
+
+
+function fnGetSeq() {
+
+let url = 'http://localhost:3000/http://baixethaodienpearl.ddns.me:83/ISAPI/Custom/SelfExt/ContentMgmt/ParkingStatus'
+let req = new digestAuthRequest('GET', url, 'admin', 'hd543211')
+req.request(function (data) {
+	//console.log(data);
+	let $xml = $($.parseXML(data))
+	let $eachLot = $xml.find('ParkingStatusSingle')
+	let i = 0
+	$eachLot.each(function () {
+		let lot = $(this).find('ParkingNo').text(),
+			status = $(this).find('CarStatus').text(),
+			plate = $(this).find('PlateNum').text(),
+			color = $(this).find('VehicleColor').text();		
+			
+		var array = Array.from(plate);
+			var plate1= '';
+			if (array[2]==='1'){array[2]='I'};
+			if (array[2]==='8'){array[2]='B'};
+			if (array[2]==='0'){array[2]='O'};
+			for(var i=0;i<2;i++){
+			if (array[i]==='I'){array[i]='1'};
+			if (array[i]==='B'){array[i]='8'};
+			if (array[i]==='O'){array[i]='0'};
+			}
+			for(var i=3;i<plate.length;i++){
+			if (array[i]==='I'){array[i]='1'};
+			if (array[i]==='B'){array[i]='8'};
+			if (array[i]==='O'){array[i]='0'};
+			}
+			for (var i=0;i<plate.length;i++){
+				plate1 += array[i];
+			}	
+			
+		fnSetLotStatus(lot, status, plate1, color)
+		switch (status) {
+			case '1':
+				//console.log('case 1')
+				$.ajax({
+					url: 'http://localhost:3000/http://localhost/php/lotCheck.php',
+					method: 'post',
+					dataType: 'json',
+					data: {
+						camera: $('#cmrIp').val(),
+						lot: $(this).find('ParkingNo').text()
+					},
+					success: function (result) {
+						//console.log(result);
+						//result = JSON.parse(result)							
+						if (result == null) {
+							$.ajax({
+								url: 'http://localhost:3000/http://localhost/php/lotAdd.php',
+								method: 'post',
+								dataType: 'json',
+								data: {
+									camera: $('#cmrIp').val(),
+									lot: lot,
+								},
+								success: function (result) {
+									 //result = JSON.parse(result);									 
+									if (result.status !== true) {
+										alert('ERR_DB: ADD_LOT. Please try again later')
+									}
+								},
+								error: function (result) {
+									alert('ERR_REQ: Please try again later')
+								}
+							})
+						} else {
+							//result = JSON.parse(result);						
+							if (result.isOccupied === '0') {
+								//Store plate
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/plateStore.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+										plate: plate1,
+										color: color
+									},
+									success: function (result) {
+										// result = JSON.parse(result);										
+										if (result.log != true) {
+											alert('ERR_DB: STORE_PLATE. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+								// change status
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/lotUpdate.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+										isOccupied: '1'
+									},
+									success: function (result) {
+										 //result = JSON.parse(result)
+										if (result.log != true) {
+											alert('ERR_DB: UPDATE_LOT. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+							}
+						}
+					},
+					error: function (result) {
+						alert('ERR_REQ: Please try again later')
+					}
+				})
+				break
+			case '0':
+				//console.log('case 0')
+				$.ajax({
+					url: 'http://localhost:3000/http://localhost/php/lotCheck.php',
+					method: 'post',
+					dataType: 'json',
+					data: {
+						camera: $('#cmrIp').val(),
+						lot: $(this).find('ParkingNo').text()
+					},
+					success: function (result) {
+						//console.log(result)
+						if (result == null) {
+							$.ajax({
+								url: 'http://localhost:3000/http://localhost/php/lotAdd.php',
+								method: 'post',
+								dataType: 'json',
+								data: {
+									camera: $('#cmrIp').val(),
+									lot: lot,
+								},
+								success: function (result) {
+									//result = JSON.parse(result)
+									if (result.status !== true) {
+										alert('ERR_DB: ADD_LOT. Please try again later')
+									}
+								},
+								error: function (result) {
+									alert('ERR_REQ: Please try again later')
+								}
+							})
+						} else {
+							 //result = JSON.parse(result)
+							if (result.isOccupied === '1') {
+								// change status
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/lotUpdate.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+										isOccupied: '0'
+									},
+									success: function (result) {
+										// result = JSON.parse(result)
+										if (result.status !== true) {
+											alert('ERR_DB: UPDATE_LOT. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+							}
+						}
+					},
+					error: function (result) {
+						alert('ERR_REQ: Please try again later')
+					}
+				})
+				break
+			default: break
+		}
+	})
+}, function (error) {
+	alert('Error!')
+})
+
+		setInterval(function () {
+			let url = 'http://localhost:3000/http://baixethaodienpearl.ddns.me:83/ISAPI/Custom/SelfExt/ContentMgmt/ParkingStatus'
+			let req = new digestAuthRequest('GET', url, 'admin', 'hd543211')
+			req.request(function (data) {
+			let $xml = $($.parseXML(data))
+			//console.log($xml);
+			let $eachLot = $xml.find('ParkingStatusSingle')
+			let i = 0
+			$eachLot.each(function () {
+			let lot = $(this).find('ParkingNo').text(),
+				status = $(this).find('CarStatus').text(),
+				plate = $(this).find('PlateNum').text(),
+				color = $(this).find('VehicleColor').text();
+			var array = Array.from(plate);
+			var plate1= '';
+			if (array[2]==='1'){array[2]='I'};
+			if (array[2]==='8'){array[2]='B'};
+			if (array[2]==='0'){array[2]='O'};
+			for(var i=0;i<2;i++){
+			if (array[i]==='I'){array[i]='1'};
+			if (array[i]==='B'){array[i]='8'};
+			if (array[i]==='O'){array[i]='0'};
+			}
+			for(var i=3;i<plate.length;i++){
+			if (array[i]==='I'){array[i]='1'};
+			if (array[i]==='B'){array[i]='8'};
+			if (array[i]==='O'){array[i]='0'};
+			}
+			for (var i=0;i<plate.length;i++){
+				plate1 += array[i];
+			}	
+			fnSetLotStatus(lot, status, plate1, color)
+			switch (status) {
+				case '1':
+					$.ajax({
+						url: 'http://localhost:3000/http://localhost/php/lotCheck.php',
+						method: 'post',
+						dataType: 'json',
+						data: {
+							camera: $('#cmrIp').val(),
+							lot: $(this).find('ParkingNo').text()
+						},
+						success: function (result) {
+							// result = JSON.parse(result)
+							if (result == null) {
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/lotAdd.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+									},
+									success: function (result) {
+										// result = JSON.parse(result)
+										if (result.status !== true) {
+											alert('ERR_DB: ADD_LOT. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+							} else if (result.isOccupied === '0') {
+								//Store plate
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/plateStore.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+										plate: plate1,
+										color: color
+									},
+									success: function (result) {
+										// result = JSON.parse(result)
+										if (result.log !== true) {
+											alert('ERR_DB: STORE_PLATE. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+								// change status
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/lotUpdate.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+										isOccupied: '1'
+									},
+									success: function (result) {
+										// result = JSON.parse(result)
+										if (result.status !== true) {
+											alert('ERR_DB: UPDATE_LOT. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+							}
+						},
+						error: function (result) {
+							alert('ERR_REQ: Please try again later')
+						}
+					})
+					break
+				case '0':
+					$.ajax({
+						url: 'http://localhost:3000/http://localhost/php/lotCheck.php',
+						method: 'post',
+						dataType: 'json',
+						data: {
+							camera: $('#cmrIp').val(),
+							lot: $(this).find('ParkingNo').text()
+						},
+						success: function (result) {
+							// result = JSON.parse(result)
+							if (result == null) {
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/lotAdd.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+									},
+									success: function (result) {
+										// result = JSON.parse(result)
+										if (result.status !== true) {
+											alert('ERR_DB: ADD_LOT. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+							} else if (result.isOccupied === '1') {
+								// change status
+								$.ajax({
+									url: 'http://localhost:3000/http://localhost/php/lotUpdate.php',
+									method: 'post',
+									dataType: 'json',
+									data: {
+										camera: $('#cmrIp').val(),
+										lot: lot,
+										isOccupied: '0'
+									},
+									success: function (result) {
+										// result = JSON.parse(result)
+										if (result.status !== true) {
+											alert('ERR_DB: UPDATE_LOT. Please try again later')
+										}
+									},
+									error: function (result) {
+										alert('ERR_REQ: Please try again later')
+									}
+								})
+							}
+						},
+						error: function (result) {
+							alert('ERR_REQ: Please try again later')
+						}
+					})
+					break
+				default: break
+			}
+		})
+	}, function (error) {
+		alert('Error! ')
+	})
+}, 60000)
+}
+
+function fnSetLotStatus(lotNo, status, plate, color) {
+// let tdId = lotNo + 1
+switch (status) {
+	case '0':
+		$('#tblParkingLot td:eq(' + lotNo + ')').html('Empty').removeClass().addClass('lotSttEmpty')
+		break
+	case '1':
+		$('#tblParkingLot td:eq(' + lotNo + ')').html('Occupied').removeClass().addClass('lotSttOccupied')
+		break
+}
+let tdPlate = parseInt(lotNo) + 4
+let tdColor = parseInt(lotNo) + 8
+$('#tblParkingLot td:eq(' + tdPlate + ')').html('' + String(plate))
+$('#tblParkingLot td:eq(' + tdColor + ')').html('' + String(color))
+}
+		
+	
+		
+	</script>
+
+    <!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	
+   
+    
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+  </body>
+</html>

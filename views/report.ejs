@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>Parking Management</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="datatables.min.css" />
+
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="dist/css/adminlte.min.css">
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<!-- Daterange picker -->
+	<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+	<!-- Select2 -->
+	<link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+	<!-- datatables -->
+	<link rel="stylesheet" type="text/css" href="plugins/DataTables/datatables.min.css" />
+</head>
+
+<style>
+	.lotSttUnknow {
+		background-color: #343a40;
+		color: white;
+	}
+
+	.lotStEmpty {
+		background-color: #28a745;
+		color: white;
+	}
+
+	.lotSttOccupied {
+		background-color: #dc3545;
+		color: white;
+	}
+</style>
+
+<body class="hold-transition layout-top-nav">
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<nav class="main-header navbar navbar-expand-md navbar-dark navbar-olive">
+			<div class="container">	
+							
+				<div class="collapse navbar-collapse order-3" id="navbarCollapse">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="index" class="nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="parking" class="nav-link">Parking</a>
+						</li>
+						<li class="nav-item">
+							<a href="camera" class="nav-link">Camera</a>
+						</li>
+						
+						<li class="nav-item">
+							<a href="#" class="nav-link">Report</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark"> Report <small></small></h1>
+						</div><!-- /.col -->
+						<div class="col-sm-6">
+							<!-- <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Layout</a></li>
+              <li class="breadcrumb-item active">Top Navigation</li>
+            </ol> -->
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">Input data</h5>
+								</div>
+								<!-- <form class="form" id="formLogin"> -->
+								<div class="card-body">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group">
+												<label for="findDate">Date</label>
+												<input type="text" name="findDate" id="findDate" class="form-control calendar9">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card-footer">
+									<div class="row">
+										<div class="col-8">
+										</div>
+										<div class="col-4" style="text-align: right;">
+											<button class="btn bg-olive" id="btnGet">Get report</button>
+										</div>
+									</div>
+								</div>
+								<!-- </form> -->
+							</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header bg-olive">
+									<h5 class="card-title">Report</h5>
+								</div>
+								<div class="card-body">
+									<table class="table table-bordered" id="tblReport">
+										<thead>
+											<tr>
+												<th>Date enter</th>
+												<th>License Plate</th>												
+												<th>Color</th>
+												<th>Floor</th>
+												<th>Lot</th>
+												<th>Time park (hours)</th>
+											</tr>
+											
+										</thead>
+										
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="float-right d-none d-sm-inline">
+
+			</div>
+			<!-- Default to the left -->
+			<strong>Copyright &copy; 2020 <a href="#">VAS Corporation</a>.</strong> All rights reserved.
+		</footer>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- REQUIRED SCRIPTS -->
+
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.min.js"></script>
+	<!-- jquery-validation -->
+	<script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+	<script src="plugins/jquery-validation/additional-methods.min.js"></script>
+	<!-- DataTables -->
+	<script src="plugins/DataTables/datatables.min.js"></script>
+	<!-- Select2 -->
+	<script src="plugins/select2/js/select2.full.min.js"></script>
+	<!-- InputMask -->
+	<script src="plugins/moment/moment.min.js"></script>
+	<script src="plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+	<!-- date-range-picker -->
+	<script src="plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Digest Auth -->
+	<!-- <script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script> -->
+	<script type="text/javascript" src="plugins/digestAjax/crypto-js/core.js"></script>
+	<script type="text/javascript" src="plugins/digestAjax/crypto-js/md5.js"></script>
+	<!-- <script type="text/javascript" src="plugins/digestAjax/crypto-js/crypto-js.js"></script> -->
+	<script type="text/javascript" src="plugins/digestAjax/digestAuthRequest.js"></script>
+	<!-- <script type="text/javascript" src="plugins/digestAjax/digest.js"></script> -->
+
+
+	<script>
+		$('[data-mask]').inputmask()
+		$('.select2').select2({
+			theme: 'bootstrap4'
+		})
+		$('.calendar9').daterangepicker({
+			timePicker: false,
+			locale: {
+				format: 'YYYY-MM-DD',
+				// daysOfWeek: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+				// monthNames: ["Tháng 01", "Tháng 02", "Tháng 03", "Tháng 04", "Tháng 05", "Tháng 06", "Tháng 07", "Tháng 08", "Tháng 09", "Tháng 10", "Tháng 11", "Tháng 12"],
+				separator: " to "
+			},
+			autoUpdateInput: true,
+			autoApply: true,
+			showDropdowns: true,
+			// singleDatePicker: true
+		})
+
+		var tblReport = $('#tblReport').DataTable({
+        'dom': 'lfrtipB',
+        'paging': true,
+        'ordering': true,
+        'lengthChange': true,
+        'info': true,
+        'autoWidth': false,
+        'searching': true,
+        'button': [
+          'csv', 'excel', 'print'
+        ]
+      })
+
+		$(document).ready(function () {
+
+			$('#btnLogin').click(function () {
+				// var url = 'http://' + $('#cmrIp').val() + '/ISAPI/System/deviceInfo'
+				var url = 'http://192.168.0.222/ISAPI/System/deviceInfo'
+
+				// var xhr = new XMLHttpRequest()
+
+				// xhr.addEventListener("readystatechange", function () {
+				// 	if (this.readyState === 4) {
+				// 		console.log(this.responseText)
+				// 	}
+				// 	if (this.readyState === 2) {
+				// 		console.log(this.getAllResponseHeaders)
+				// 	}
+				// })
+
+				// xhr.open('GET', 'http://192.168.1.64/ISAPI/System/deviceInfo', true)
+				// xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
+				// xhr.setRequestHeader('Content-type', 'application/json')
+				// xhr.send();
+
+				var req = new digestAuthRequest('GET', url, 'admin', '280E15LDC');
+				// make the request
+				req.request(function (data) {
+					console.log('Data retrieved successfully')
+					console.log(data)
+				}, function (errorCode) {
+					console.log('no dice: ' + errorCode)
+				});
+
+				// $.ajax({
+				// 	url: url,
+				// 	method: 'get',
+				// 	dataType: 'xml',
+				// 	headers: {
+				// 		'Access-Control-Allow-Origin' : '*',
+				// 		'Authorization': 'Basic ' + btoa('admin:280E15LDC')
+				// 	},
+				// 	statusCode: {
+				// 		401: function(jqXHR, textStatus, errorThrow) {
+				// 			console.log(jqXHR)
+				// 			console.log(textStatus)
+				// 			console.log(errorThrow)
+				// 		}
+				// 	}
+				// })
+			})
+
+			$('#btnGet').click(function () {				
+				$.ajax({
+					url: 'http://localhost:3000/http://localhost/index.php',
+					method: 'GET',
+					success: function(result){
+						console.log(result);						
+
+										
+					}									
+				})
+
+				
+			})
+		})
+
+		function fnGetImage() {
+			setInterval(function () {
+
+			}, 6000)
+		}
+	</script>
+</body>
+
+</html>
